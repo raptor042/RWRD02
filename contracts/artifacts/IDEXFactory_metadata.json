@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.7.6+commit.7338295f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenA",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "tokenB",
+						"type": "address"
+					}
+				],
+				"name": "createPair",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "pair",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/RWRD.sol": "IDEXFactory"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 1
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/RWRD.sol": {
+			"keccak256": "0x9930719401cf11db57610ee738d3d2292edcfcc11d46a6fb722e68b3160f2acd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://244ffac54baf96cea347d74c81ec66b042c247844a03156ea172a6318e4aa35a",
+				"dweb:/ipfs/QmPjnqbkd3LGEsRBxUzXdsEWPy6uUXrpfYKHdqkzyF8cEx"
+			]
+		}
+	},
+	"version": 1
+}

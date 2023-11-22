@@ -368,9 +368,6 @@ contract RWRD is IBEP20, Auth {
     mapping (address => uint256) _balances;
     mapping (address => mapping (address => uint256)) _allowances;
 
-    bool public blacklistMode = true;
-    mapping (address => bool) public isBlacklisted;
-
 
     mapping (address => bool) isExcludedFromFees;
     mapping (address => bool) isExcludedFromTx;
@@ -547,12 +544,6 @@ contract RWRD is IBEP20, Auth {
             require(tradingOpen,"Trading not open yet");
         }
 
-        // Blacklist
-        if(blacklistMode){
-            require(!isBlacklisted[sender] && !isBlacklisted[recipient],"Blacklisted");    
-        }
-
-
         if (!authorizations[sender] && recipient != address(this)  && recipient != address(DEAD) && recipient != pair && recipient != marketingTaxWallet && recipient != autoLiquidityReceiver){
             uint256 heldTokens = balanceOf(recipient);
             require((heldTokens + amount) <= _maxWalletToken,"Total Holding is currently limited, you can not buy that much.");}
@@ -725,17 +716,6 @@ contract RWRD is IBEP20, Auth {
             distributor.setShare(holder, _balances[holder]);
         }
     }
-
-    function enable_blacklist(bool _status) public onlyOwner {
-        blacklistMode = _status;
-    }
-
-    function manage_blacklist(address[] calldata addresses, bool status) public onlyOwner {
-        for (uint256 i; i < addresses.length; ++i) {
-            isBlacklisted[addresses[i]] = status;
-        }
-    }
-
 
     function setIsExcludedFromFees(address holder, bool exempt) external authorized {
         isExcludedFromFees[holder] = exempt;
